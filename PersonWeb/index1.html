@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="css/index.css">
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/vue.min.js"></script>
+    <script src="ajax.js"></script>
 </head>
 <body>
 <div class="banner">
@@ -22,6 +23,7 @@
     <a>个人</a>
     <a>日志</a>
 </div>
+<button id="sb">提交</button>
 <div>
     <div class="person_img">
         <div style="margin-left: 0px;"><span title="上一张"><</span></div>
@@ -33,11 +35,11 @@
 </div>
 <div class="spider_source" id="spider_source">
     <ul>
-        <li v-for="i in my_source">
-            <h3>{{i.title}}</h3>
-            <p>简介:{{i.info}}</p>
-            <p>链接:{{i.link}}</p>
-        </li>
+<!--        <li v-for="i in my_source">-->
+<!--            <h3>{{i.title}}</h3>-->
+<!--            <p>简介:{{i.info}}</p>-->
+<!--            <p>链接:{{i.link}}</p>-->
+<!--        </li>-->
     </ul>
 </div>
 <div class="title">
@@ -45,16 +47,17 @@
 </div>
 <div class="msg_content" id="msg_content">
     <ul>
-        <li v-for="i in msg_content">
-            <h3>{{i.speaker}}</h3>
-            <p>时间:{{i.time}}</p>
-            <p>内容:{{i.content}}</p>
-        </li>
+<!--        <li v-for="i in user_info">-->
+<!--            <h3>{{i.name}}</h3>-->
+<!--            <p>时间:{{i.age}}</p>-->
+<!--            <p>内容:{{i.sex}}</p>-->
+<!--        </li>-->
     </ul>
     <form class="msg_form">
         <input>
         <button type="submit">提交</button>
     </form>
+
 </div>
 </body>
 <script>
@@ -62,29 +65,51 @@
         $(this).children().fadeTo('slow', 0.3)
     }, function () {
         $(this).children().fadeTo('slow', 0.03)
-    })
+    });
 
-    new Vue({
-        el:'#spider_source',
-        data:{
-            my_source:[
-                {title:'Scrapy爬虫', info:'非常好用', link:'114'},
-                {title:'Requests爬虫', info:'异常好用', link:'514'},
-                {title:'Selenium爬虫', info:'很好用', link:'1919'}
-            ]
-        }
-    })
 
-    new Vue({
-        el:'#msg_content',
-        data:{
-            msg_content:[
-                {speaker:'UDK', time:'114', content:'我忘记了啊'},
-                {speaker:'RU', time:'514', content:'今天也是好天气'},
-                {speaker:'HNS', time:'1919', content:'MRS!!!'},
-            ]
-        }
-    })
+    $('#sb').click(function () {
+        ajax('./PHP/Data_test.php',{},function (xml) {
+            let data = xml.responseText;
+
+            let json_data = JSON.parse(data);
+
+            // console.log(json_data);
+
+            new Vue({
+                el:'#msg_content',
+                data:{
+                    user_info:json_data.data
+                }
+            })
+
+        },function () {
+            alert('fail')
+        },'GET',3000)
+    });
+
+
+    // new Vue({
+    //     el:'#spider_source',
+    //     data:{
+    //         my_source:[
+    //             {title:'Scrapy爬虫', info:'非常好用', link:'114'},
+    //             {title:'Requests爬虫', info:'异常好用', link:'514'},
+    //             {title:'Selenium爬虫', info:'很好用', link:'1919'}
+    //         ]
+    //     }
+    // })
+    //
+    // new Vue({
+    //     el:'#msg_content',
+    //     data:{
+    //         msg_content:[
+    //             {speaker:'UDK', time:'114', content:'我忘记了啊'},
+    //             {speaker:'RU', time:'514', content:'今天也是好天气'},
+    //             {speaker:'HNS', time:'1919', content:'MRS!!!'},
+    //         ]
+    //     }
+    // })
 
 </script>
 </html>
