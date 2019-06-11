@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test1</title>
+    <script src="./js/vue.min.js"></script>
+    <style>
+        .div1{
+            background: yellow;
+        }
+    </style>
+</head>
+<body>
+<div id="div1" class="div1">
+    <p v-for="d in d1">{{d.name}}<span>{{d.age}}</span></p>
+</div>
+</body>
+<script>
+new Vue({
+    el:'#div1',
+    data:{
+        d1:[
+            {name:'yjsp', age:24},
+            {name:'kmr', age:26},
+            {name:'mur', age:23},
+        ]
+    }
+})
+</script>
+</html>

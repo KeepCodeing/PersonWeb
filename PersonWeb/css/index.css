@@ -1,0 +1,124 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.banner{
+    /*border-bottom: 1px solid black;*/
+    /*水平 垂直 模糊 颜色*/
+    box-shadow:0px 2px 3px #aaaaaa;
+    height: 40px;
+    width: 1500px;
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+    background: #4b4b4b;
+}
+.banner>a{
+    font-size: 17px;
+    color: #d6d6d6;
+    margin-left: 20px;
+    line-height: 40px;
+    cursor: pointer;
+}
+.banner>a:hover{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.person_img{
+    background-image: url("http://i0.hdslb.com/bfs/space/d24be185c97fd10bd3d5290c9367ea0d32b1187e.png");
+    height: 200px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 1500px;
+    /*子绝父相*/
+    /*position: relative;*/
+    /*居中*/
+    display: flex;
+
+}
+
+.person_img>div{
+    background: black;
+    opacity: 0.03;
+    height: 35px;
+    width: 30px;
+    margin: auto;
+    display: flex;
+    cursor: pointer;
+}
+/*.person_img>div:hover{*/
+/*    opacity: 0.5;*/
+/*    !*过渡动画开始延迟*!*/
+/*    transition-delay: 10ms;*/
+/*    !*指定需要过渡的属性*!*/
+/*    transition-property: opacity;*/
+/*    !*过渡时间*!*/
+/*    transition-duration: 500ms;*/
+/*}*/
+.person_img>div>span{
+    /*position: absolute;*/
+    font-size: 25px;
+    color: #FFFFFF;
+    margin: auto;
+}
+
+.title{
+    width: 1500px;
+    /*左上右下*/
+    margin: 10px auto 10px auto;
+    display: flex;
+}
+.title>span{
+    text-align: center;
+    margin: auto;
+    font-size: 15px;
+
+}
+
+.spider_source>ul{
+    width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    /*background: black;*/
+    list-style: none;
+
+}
+.spider_source>ul>li{
+    /*background: gray;*/
+    min-height: 50px;
+}
+.spider_source>ul>li>h3{
+    text-align: center;
+    padding: 10px;
+}
+
+.msg_content>ul{
+    width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    /*background: black;*/
+    list-style: none;
+
+}
+.msg_content>ul>li{
+    /*background: gray;*/
+    min-height: 50px;
+}
+.msg_content>ul>li>h3{
+    text-align: center;
+    padding: 10px;
+}
+
+.msg_form{
+    width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+
+}
+.msg_form>input{
+    height: 100px;
+    width: 1500px;
+}
